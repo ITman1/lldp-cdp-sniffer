@@ -1,0 +1,72 @@
+POPIS PROGRAMU
+  Program zachytává nebo odesílá pakety protokolù LLDP a CDP. Programu musí být 
+  v¾dy urèeno rozhraní, se kterým se pracuje, a re¾im, který se má provádìt. 
+  
+  V re¾imu odesílání odesílání lze zvolit navíc i interval odesílání a dobu 
+  ¾ivotnosti paketu.  
+
+PØEKLAD PROGRAMU
+  - Je zapotøebí GNU make.
+  - Pøekladový makefile je v souboru "Makefile.am".
+  - O volání GNU make se stará skript "run_make.sh", který je volán 
+    z univerzálního makefilu - soubor Makefile.
+  - Pokud není na Linuxu GNU make asociován s pøíkazem "make" a na FreeBSD 
+    s pøíkazem "gmake", je nutné provést pøeklad manuálnì následovnì:
+    
+    $ pøíkaz_pro_spu¹tìní_GNU_make -f Makefile.am
+  
+SPU©TÌNÍ PROGRAMU
+
+  Pou¾ití:
+  	./xlosko01 [-l|-s] -i <rozhraní> [-c] [-t <int>] [-r <int>]
+  
+  Pøepínaèe:
+  	-i název rozhraní
+  	-s re¾im zasílání paketù (bez pøepínaèe -c zasílání LLDP paketù)
+  	-l re¾im naslouchání na rozhraní
+  	-c zasílání CDP paketù
+  	-t doba bìhu programu v re¾imu zasílání paketù (v sekundách)
+  	-r interval odesílání paketù (v sekundách)
+
+  Pøíklady spu¹tìní:
+      ./xlosko01 -i eth1 -s -r 60
+      ./xlosko01 -i eth1 -l
+
+SEZNAM SOUBORÙ
+
+  * Makefile
+  * Makefile.mk
+  * manual.pdf
+  * Readme
+  * run_make.sh
+  * src/cdp_lldp_sniffer.cpp
+  * src/lib/sniffers/cdp_sniffer.cpp
+  * src/lib/sniffers/cdp_sniffer.h
+  * src/lib/sniffers/lldp_sniffer.cpp
+  * src/lib/sniffers/lldp_sniffer.h
+  * src/lib/sniffers/packets/cdp_packet.cpp
+  * src/lib/sniffers/packets/cdp_packet.h
+  * src/lib/sniffers/packets/frames/data.cpp
+  * src/lib/sniffers/packets/frames/data.h
+  * src/lib/sniffers/packets/frames/ethernet_frame.cpp
+  * src/lib/sniffers/packets/frames/ethernet_frame.h
+  * src/lib/sniffers/packets/frames/frame.cpp
+  * src/lib/sniffers/packets/frames/frame.h
+  * src/lib/sniffers/packets/frames/frames.h
+  * src/lib/sniffers/packets/llc_packet.cpp
+  * src/lib/sniffers/packets/llc_packet.h
+  * src/lib/sniffers/packets/lldp_packet.cpp
+  * src/lib/sniffers/packets/lldp_packet.h
+  * src/lib/sniffers/packets/packet.cpp
+  * src/lib/sniffers/packets/packet.h
+  * src/lib/sniffers/packets/protocols.h
+  * src/lib/sniffers/packets/sysinfo.cpp
+  * src/lib/sniffers/packets/sysinfo.h
+  * src/lib/sniffers/packets/tlv.cpp
+  * src/lib/sniffers/packets/tlv.h
+  * src/lib/sniffers/sniffer.cpp
+  * src/lib/sniffers/sniffer.h
+  * src/lib/sniffers.cpp
+  * src/lib/sniffers.h
+  * src/network.cpp
+  * src/network.h
