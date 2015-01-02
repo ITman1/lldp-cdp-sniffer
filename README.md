@@ -3,6 +3,8 @@ LLDP & CDP sniffer
 
 Sniffer that captures LLDP and CDP packets and prints them on standard output. Sniffer can also generate fake LLDP or CDP packets for test purposes.
 
+### Preview on [`YouTube`](https://www.youtube.com/watch?v=fN0VAAZINgw)
+
 # Usage
 
 ```
